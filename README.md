@@ -26,14 +26,16 @@ const Example = () => {
   let [items, setItems] = useState([])
   let count = useComputedState(
     () => items.length,
-    [items]
+    [items],
+    0
   )
   let promisedCount = useComputedState(
     async () => {
       let response = await Promise.resolve(items.length)
       return response
     },
-    [items]
+    [items],
+    0
   )
 
   return (
